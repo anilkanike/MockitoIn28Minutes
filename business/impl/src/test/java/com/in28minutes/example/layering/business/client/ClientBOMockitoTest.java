@@ -1,15 +1,13 @@
 package com.in28minutes.example.layering.business.client;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Mockito.stub;
-import static org.mockito.Mockito.verify;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import com.in28minutes.example.layering.business.api.client.ClientBO;
+import com.in28minutes.example.layering.business.impl.client.ClientBOImpl;
+import com.in28minutes.example.layering.data.api.client.ClientDO;
+import com.in28minutes.example.layering.data.api.client.ProductDO;
+import com.in28minutes.example.layering.model.api.client.*;
+import com.in28minutes.example.layering.model.impl.client.AmountImpl;
+import com.in28minutes.example.layering.model.impl.client.ClientImpl;
+import com.in28minutes.example.layering.model.impl.client.ProductImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -17,18 +15,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.in28minutes.example.layering.business.api.client.ClientBO;
-import com.in28minutes.example.layering.business.impl.client.ClientBOImpl;
-import com.in28minutes.example.layering.data.api.client.ClientDO;
-import com.in28minutes.example.layering.data.api.client.ProductDO;
-import com.in28minutes.example.layering.model.api.client.Amount;
-import com.in28minutes.example.layering.model.api.client.Client;
-import com.in28minutes.example.layering.model.api.client.Currency;
-import com.in28minutes.example.layering.model.api.client.Product;
-import com.in28minutes.example.layering.model.api.client.ProductType;
-import com.in28minutes.example.layering.model.impl.client.AmountImpl;
-import com.in28minutes.example.layering.model.impl.client.ClientImpl;
-import com.in28minutes.example.layering.model.impl.client.ProductImpl;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.stub;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ClientBOMockitoTest {
@@ -37,6 +32,7 @@ public class ClientBOMockitoTest {
             .forClass(Client.class);
 
     private static final int DUMMY_CLIENT_ID = 1;
+    private final int TEST = 2;
 
     @Mock
     private ProductDO productDO;
